@@ -60,8 +60,7 @@
              //ㅇㅇㅇ
             // XMLHttpRequest를 사용하여 SOAP 요청 보내기
             const xhr = new XMLHttpRequest();
-            xhr.open('GET', 'https://61.100.15.218:8080/Angkor.Ylw.Common.HttpExecute/HttpExecute.svc', true);
-            xhr.open('GET', 'http://61.100.15.218:8080/Angkor.Ylw.Common.HttpExecute/HttpExecute.svc', true);
+            xhr.open('POST', 'https://erp.hyvision.co.kr:8081/AngKor.Ylw.Common.HttpExecute/HttpExecute.svc', true);
 
             // SOAPAction 헤더 추가
             xhr.setRequestHeader('SOAPAction', 'http://tempuri.org/IHttpExecute/SCOMGroupWareQuery');
