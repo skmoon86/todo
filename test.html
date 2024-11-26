@@ -61,7 +61,18 @@
             // XMLHttpRequest를 사용하여 SOAP 요청 보내기
             const xhr = new XMLHttpRequest();
             xhr.open('POST', 'http://61.100.15.218:8080/Angkor.Ylw.Common.HttpExecute/HttpExecute.svc', true);
-            xhr.setRequestHeader('Content-Type', 'text/xml');
+            
+            // SOAPAction 헤더 추가
+            xhr.setRequestHeader('SOAPAction', 'http://tempuri.org/IHttpExecute/SCOMGroupWareQuery');
+            
+            // Content-Type 헤더 추가
+            xhr.setRequestHeader('Content-Type', 'text/xml; charset=utf-8');
+            
+            // 추가적인 헤더가 필요한 경우 여기에 설정
+            xhr.setRequestHeader('Accept', 'text/xml');
+            xhr.setRequestHeader('Cache-Control', 'no-cache');
+            
+            // 요청 상태 변화에 따른 콜백
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     console.log('SOAP 요청이 성공적으로 전송되었습니다.');
@@ -70,6 +81,8 @@
                     console.log('SOAP 요청 전송에 실패하였습니다.');
                 }
             };
+            
+            // SOAP XML 요청 보내기
             xhr.send(xmlData);
         }
 
